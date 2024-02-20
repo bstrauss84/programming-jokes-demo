@@ -170,6 +170,8 @@ echo "Application URL: https://$(oc get route programming-jokes-app -o jsonpath=
 1. **Visit the Application Again**: Use the URL provided by the command to open your application in a web browser.
 2. **Check for New Content**: Press the "Get Another Joke" button multiple times until you see the new jokes appear. This confirms that the update was successful and the new version of your application is live.  If you did the optional step earlier, where you updated the Containerfile, you should notice that the "**Current Version:**" listed beneath the button has been updated as well.
 
+![Updated Application](https://github.com/bstrauss84/programming-jokes-demo/blob/main/content/updated_application.png?raw=true)
+
 ## Conclusion
 
 This guide walked us through the process of deploying a simple Flask application on OpenShift, making updates to the application, and managing deployment updates. It covered everything from initial setup to deploying and updating the application.
