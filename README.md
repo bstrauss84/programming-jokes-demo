@@ -1,4 +1,4 @@
-# programming-jokes-demo# Sample 'Programming Jokes' Application Deployment and Update Guide on OpenShift
+# Sample 'Programming Jokes' Application Deployment and Update Guide on OpenShift
 
 This README provides a comprehensive guide on deploying a simple Flask application, which serves extremely cheesy and randomly selected programming jokes, on OpenShift, and also outlines how to update the application with new content and versioning.
 
