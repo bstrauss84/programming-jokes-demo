@@ -60,7 +60,7 @@ IMAGE_TAG=v1.0
 Build your image using Podman or Docker:
 
 ```bash
-podman build -t programming-jokes:$IMAGE_TAG .
+podman build -t $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest .
 ```
 
 ### Tag and Push the Image to the OpenShift Registry
@@ -74,9 +74,6 @@ podman login -u $(oc whoami) -p $(oc whoami -t) $OPENSHIFT_REGISTRY_ROUTE
 Tag and push your image:
 
 ```bash
-podman tag programming-jokes $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:$IMAGE_TAG
-podman tag programming-jokes $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest
-podman push $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:$IMAGE_TAG
 podman push $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest
 ```
 
@@ -132,14 +129,11 @@ To update your application (e.g., adding new jokes), follow these steps:
 
    Rebuild the image with the new content:
    ```bash
-   podman build -t programming-jokes .
+   podman build -t $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest .
    ```
 
    Tag and push the updated image to the registry:
    ```bash
-   podman tag programming-jokes $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:$IMAGE_TAG
-   podman tag programming-jokes $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest
-   podman push $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:$IMAGE_TAG
    podman push $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest
    ```
 
