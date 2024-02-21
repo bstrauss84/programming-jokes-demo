@@ -9,9 +9,7 @@ jokes = [
     "Why do Java developers wear glasses? Because they don't C#.",
     "How many programmers does it take to change a light bulb? None, that's a hardware problem.",
     "Why was the JavaScript developer sad? Because he didn't know how to 'null' his feelings.",
-    "Why did the developer go broke? Because he used up all his cache.",
-    "I've been using Vim for a long time now, mainly because I can't figure out how to exit it.",
-    "Knock Knock! Who's there?  Carter! Carter Who?  Carter Sauce!"
+    "Why did the developer go broke? Because he used up all his cache."
 ]
 
 @app.route('/')
