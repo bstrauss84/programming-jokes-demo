@@ -43,7 +43,6 @@ To simplify the rest of this excercise, let's go ahead and define some environme
 ```bash
 OPENSHIFT_REGISTRY_ROUTE=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
 NAMESPACE=jokes-demo
-IMAGE_TAG=v1.0
 ```
 
 ## Application Structure
@@ -82,6 +81,7 @@ podman push $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest
 Deploy your application on OpenShift:
 
 ```bash
+oc new-project $NAMESPACE
 oc new-app $NAMESPACE/programming-jokes:latest --name=programming-jokes-app
 oc create route edge programming-jokes-app --service=programming-jokes-app --insecure-policy=Redirect
 ```
