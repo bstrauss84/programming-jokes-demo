@@ -42,7 +42,7 @@ To simplify the rest of this excercise, let's go ahead and define some environme
 
 ```bash
 OPENSHIFT_REGISTRY_ROUTE=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
-NAMESPACE=jokes-demo
+NAMESPACE="demo-$(oc whoami)"
 ```
 
 ## Application Structure
