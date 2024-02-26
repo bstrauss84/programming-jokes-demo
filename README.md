@@ -71,7 +71,7 @@ Authenticate with the OpenShift registry:
 podman login -u $(oc whoami) -p $(oc whoami -t) $OPENSHIFT_REGISTRY_ROUTE
 ```
 
-Tag and push your image:
+Push your image to the internal OpenShift registry:
 
 ```bash
 podman push $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest
@@ -118,30 +118,16 @@ To update your application (e.g., adding new jokes), follow these steps:
    Modify the ENV variable `APP_VERSION` in the Containerfile from `1.0` to `2.0`.
 
 
-3. **Increment the Image Tag**: Before rebuilding, update your image tag to reflect the new version.
-
-   For example:
-   ```bash
-   IMAGE_TAG=v2.0
-   ```
-
-4. **Rebuild, Tag, and Push the Updated Image**:
+3. **Rebuild and Push the Updated Image**:
 
    Rebuild the image with the new content:
    ```bash
    podman build -t $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest .
    ```
 
-   Tag and push the updated image to the registry:
+   Push the updated image to the registry:
    ```bash
    podman push $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest
-   ```
-
-4. **Deploy the Updated Application**:
-
-   Update the deployment to use the new image version:
-   ```bash
-   oc set image deployment/programming-jokes-app programming-jokes=$OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:$IMAGE_TAG
    ```
 
 ## Verifying Application Updates
