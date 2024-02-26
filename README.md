@@ -45,6 +45,14 @@ OPENSHIFT_REGISTRY_ROUTE=$(oc get route default-route -n openshift-image-registr
 NAMESPACE="demo-$(oc whoami)"
 ```
 
+### Create your Application Namespace
+
+Create your namespace:
+
+```bash
+oc new-project $NAMESPACE
+```
+
 ## Application Structure
 
 - **`app.py`**: The main Flask application file containing the server logic and joke list.
@@ -81,7 +89,6 @@ podman push $OPENSHIFT_REGISTRY_ROUTE/$NAMESPACE/programming-jokes:latest
 Deploy your application on OpenShift:
 
 ```bash
-oc new-project $NAMESPACE
 oc new-app $NAMESPACE/programming-jokes:latest --name=programming-jokes-app
 oc create route edge programming-jokes-app --service=programming-jokes-app --insecure-policy=Redirect
 ```
